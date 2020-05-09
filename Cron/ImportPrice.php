@@ -64,11 +64,11 @@ class ImportPrice
             $currency = $product['currency'];
             $currencyValue = $this->helper->getCurrencyValue($currency);
 
-            $logger->info( 'Product Name :'.$productName );
-            $logger->info( 'Product SKU :'.$productSku );
-            $logger->info( 'Price :'.$importedPrice );
-            $logger->info( 'Currency :'.$currency );
-            $logger->info( 'Currency value :'.$currencyValue );
+            $logger->info( 'Product Name :'. $productName );
+            $logger->info( 'Product SKU :'. $productSku );
+            $logger->info( 'Price :'. $importedPrice );
+            $logger->info( 'Currency :'. $currency );
+            $logger->info( 'Currency value :'. $currencyValue );
 
             $productItem = $this->productRepository->get($productSku);
             $oldPrice=$productItem->getPrice();
