@@ -3,15 +3,15 @@
 namespace SamuraiCode\CurrencyBasePrice\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
-//use Magento\Store\Model\ScopeInterface;
+use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Helper\Context;
-//use Magento\Reports\Model\ResourceModel\Product\Sold\CollectionFactory;
+use Magento\Reports\Model\ResourceModel\Product\Sold\CollectionFactory;
 
 class Data extends AbstractHelper
  {
     protected $_scopeConfig;
-    //protected $_reportCollectionFactory;
+    protected $_reportCollectionFactory;
 
     const XML_PATH_CURRENCY_BASE_PRICE_TYPE_ONE     = 'currencyBasePrice_tab/currencyBasePrice_setting/currencyBasePrice_currency_type_one';
     const XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO	    = 'currencyBasePrice_tab/currencyBasePrice_setting/currencyBasePrice_currency_type_two';
@@ -21,10 +21,10 @@ class Data extends AbstractHelper
 
     public function __construct (
         Context $context,
-        //CollectionFactory  $reportCollectionFactory,
+        CollectionFactory  $reportCollectionFactory,
         ScopeConfigInterface $scopeConfig
     ) {
-       // $this->_reportCollectionFactory = $reportCollectionFactory;
+        $this->_reportCollectionFactory = $reportCollectionFactory;
         parent::__construct( $context );
         $this->_scopeConfig = $scopeConfig;
     }
@@ -38,7 +38,7 @@ class Data extends AbstractHelper
                 return $this->_scopeConfig->getValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO );
                 break;
             case 'TRY':
-                return 5;
+                return  $this->_scopeConfig->getValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_THREE );
                 break;
             case 'AED':
                 return $this->_scopeConfig->getValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FOUR );
