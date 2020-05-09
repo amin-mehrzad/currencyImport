@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="SamuraiCode" translate="label" >
+            <label>SamuraiCode</label>
+        </tab>
+        <section id="currencyBasePrice_tab" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Currency Base</label>
+            <tab>SamuraiCode</tab>
+            <resource>SamuraiCode_CurrencyBasePrice::currencyBasePrice_configuration</resource>
+            <group id="currencyBasePrice_currency_setting" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Currency Base Currency Settings</label>
+                <field id="currencyBasePrice_currency_type_one" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>US Dollor</label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\CorrencyTypeDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <!-- <field id="currencyBasePrice_currency_value_one" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1"><label>Currency Value #1</label><validate>required-entry</validate><comment></comment></field> -->
+                <field id="currencyBasePrice_currency_type_two" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Euro </label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\CorrencyTypeDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <!-- <field id="currencyBasePrice_currency_value_two" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1"><label>Currency Value #2</label><validate>required-entry</validate><comment></comment></field> -->
+                <field id="currencyBasePrice_currency_type_three" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Turkish Lira</label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\CorrencyTypeDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <!-- <field id="currencyBasePrice_currency_value_three" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1"><label>Currency Value #3</label><validate>required-entry</validate><comment></comment></field> -->
+                <field id="currencyBasePrice_currency_type_four" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>United Arab Emirates Dirham</label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\CorrencyTypeDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <field id="currencyBasePrice_currency_type_five" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Country Currency</label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\CorrencyTypeDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+            </group>
+            <group id="currencyBasePrice_setting" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Currency Base Import Settings</label>
+                <field id="currencyBasePrice_connection_type" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Connection Type</label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\ConnectionTypeDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <field id="currencyBasePrice_host" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Host Name</label>
+                    <!-- <validate>required-entry</validate> -->
+                    <comment></comment>
+                </field>
+                <field id="currencyBasePrice_token" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Barear Token</label>
+                    <!-- <validate>required-entry</validate> -->
+                    <comment></comment>
+                </field>
+                <field id="currencyBasePrice_username" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <!-- <validate>required-entry</validate> -->
+                    <comment></comment>
+                </field>
+                <field id="currencyBasePrice_Password" translate="label comment" type="password" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                    <!-- <validate>required-entry</validate> -->
+                    <comment></comment>
+                </field>
+                <field id="currencyBasePrice_time_interval" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Time Interval</label>
+                    <!-- <source_model>SamuraiCode\CurrencyBasePrice\Model\IntervalDropdown</source_model> -->
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <field id="currencyBasePrice_file_name" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>File Name</label>
+                    <!-- <validate>required-entry</validate> -->
+                </field>
+                <field id="currencyBasePrice_active_debug" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Active Debug Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment></comment>
+                </field>
+                <field id="currencyBasePrice_log_file_path" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Log File Path</label>
+                    <!-- <validate>required-entry</validate> -->
+                    <comment></comment>
+                    <depends>
+                        <field id="*/*/currencyBasePrice_active_debug">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

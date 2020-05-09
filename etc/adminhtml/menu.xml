@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SamuraiCode_CurrencyBasePrice::samuraicode" title="SAMURAI CODE" module="SamuraiCode_CurrencyBasePrice" sortOrder="40" resource="SamuraiCode_CurrencyBasePrice::samuraicode"/>
+        <add id="SamuraiCode_CurrencyBasePrice::samuraicode_configuration" title="Configuration" module="SamuraiCode_CurrencyBasePrice" sortOrder="99" parent="SamuraiCode_CurrencyBasePrice::samuraicode"  resource="SamuraiCode_CurrencyBasePrice::samuraicode_configuration"/>
+        <add id="SamuraiCode_CurrencyBasePrice::configuration_setting" title="Setting" module="SamuraiCode_CurrencyBasePrice" sortOrder="99" parent="SamuraiCode_CurrencyBasePrice::samuraicode_configuration"  resource="SamuraiCode_CurrencyBasePrice::configuration_setting" action="adminhtml/system_config/edit/section/currencyBasePrice_tab"/>
+    </menu>
+</config>
