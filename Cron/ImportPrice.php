@@ -73,17 +73,11 @@ class ImportPrice
             $productItem = $this->productRepository->get($productSku);
             $oldPrice=$productItem->getPrice();
             $newPrice = $currencyValue * $importedPrice;
+            
             $logger->info( 'newPrice :'.$newPrice );
 
             $productItem->setPrice($newPrice);
-
             $productItem->save();
-            
-        
-
         }
-
-
-
     }
 }

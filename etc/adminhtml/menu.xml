@@ -4,5 +4,6 @@
         <add id="SamuraiCode_CurrencyBasePrice::samuraicode" title="SAMURAI CODE" module="SamuraiCode_CurrencyBasePrice" sortOrder="40" resource="SamuraiCode_CurrencyBasePrice::samuraicode"/>
         <add id="SamuraiCode_CurrencyBasePrice::samuraicode_configuration" title="Configuration" module="SamuraiCode_CurrencyBasePrice" sortOrder="99" parent="SamuraiCode_CurrencyBasePrice::samuraicode"  resource="SamuraiCode_CurrencyBasePrice::samuraicode_configuration"/>
         <add id="SamuraiCode_CurrencyBasePrice::configuration_setting" title="Setting" module="SamuraiCode_CurrencyBasePrice" sortOrder="99" parent="SamuraiCode_CurrencyBasePrice::samuraicode_configuration"  resource="SamuraiCode_CurrencyBasePrice::configuration_setting" action="adminhtml/system_config/edit/section/currencyBasePrice_tab"/>
+        <add id="SamuraiCode_CurrencyBasePrice::configuration_import" title="Import Manually" module="SamuraiCode_CurrencyBasePrice" sortOrder="89" parent="SamuraiCode_CurrencyBasePrice::samuraicode_configuration"  resource="SamuraiCode_CurrencyBasePrice::configuration_import" action="currencybaseprice/import"/>
     </menu>
 </config>
