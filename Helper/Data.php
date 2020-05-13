@@ -1,5 +1,7 @@
 <?php
-
+/* TODO:
+    - Add setValue function for currencies 
+*/
 namespace SamuraiCode\CurrencyBasePrice\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
