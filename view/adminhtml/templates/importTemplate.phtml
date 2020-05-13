@@ -4,4 +4,7 @@
     - Fill inputs by value of configuration. Use function that would defined in block (for instance $block->myFunction() )
 */
 ?>
-<p>It's a <b><?php echo $block->getCode(); ?></b></p>
+<p> USD : <b><?php echo $block->getRate('USD'); ?></b><small>Rial</small></p></b>
+<p> TRY : <b><?php echo $block->getRate('TRY'); ?></b><small>Rial</small></p></b>
+<p> EUR : <b><?php echo $block->getRate('EUR'); ?></b><small>Rial</small></p></b>
+<p> EAD : <b><?php echo $block->getRate('EAD'); ?></b><small>Rial</small></p></b>
