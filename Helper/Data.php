@@ -1,6 +1,6 @@
 <?php
 /* TODO:
-    - Add setValue function for currencies 
+    - Add setValue function for currencies
 */
 namespace SamuraiCode\CurrencyBasePrice\Helper;
 
@@ -43,6 +43,30 @@ class Data extends AbstractHelper
                 break;
             case 'custom':
                 return $this->_scopeConfig->getValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FIVE );
+                break;
+            default:
+                return 1;
+                break;
+        }
+
+    }
+
+    public function setCurrencyValue( $currency, $value ) {
+        switch  ( $currency ) {
+            case 'USD':
+                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_ONE, $value );
+                break;
+            case 'EUR':
+                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO, $value );
+                break;
+            case 'TRY':
+                return  $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_THREE, $value );
+                break;
+            case 'AED':
+                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FOUR, $value );
+                break;
+            case 'custom':
+                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FIVE, $value );
                 break;
             default:
                 return 1;
