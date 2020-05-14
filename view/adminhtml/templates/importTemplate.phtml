@@ -1,16 +1,12 @@
-<?php
-/* TODO:
-    - Create Input for currency (same as configuration)
-    - Fill inputs by value of configuration. Use function that would defined in block (for instance $block->myFunction() )
-*/
-?>
+
 <div class="currency-value-list">
-    <p> USD : <b><?php echo $block->getRate('USD'); ?></b><small> Toman</small></p></b>
-    <p> TRY : <b><?php echo $block->getRate('TRY'); ?></b><small> Toman</small></p></b>
-    <p> EUR : <b><?php echo $block->getRate('EUR'); ?></b><small> Toman</small></p></b>
-    <p> EAD : <b><?php echo $block->getRate('AED'); ?></b><small> Toman</small></p></b>
+    <p> USD : <b><?php echo $block->getRate('USD'); ?></b><small> Toman</small></p>
+    <p> TRY : <b><?php echo $block->getRate('TRY'); ?></b><small> Toman</small></p>
+    <p> EUR : <b><?php echo $block->getRate('EUR'); ?></b><small> Toman</small></p>
+    <p> EAD : <b><?php echo $block->getRate('AED'); ?></b><small> Toman</small></p>
 </div>
-<div>
+
+<form class="currency-input-list" action="" method="post">
     <label for="usd">USD</label>
     <input type="text" name="usd" value="<?php echo $block->getRate('USD'); ?>">
     <label for="try">TRY</label>
@@ -19,7 +15,16 @@
     <input type="text" name="eur" value="<?php echo $block->getRate('EUR'); ?>">
     <label for="aed">AED</label>
     <input type="text" name="aed" value="<?php echo $block->getRate('AED'); ?>">
-</div>
+    <button type="submit">Update</button>
+</form>
+
+<?php
+/* TODO:
+    - Read log file and create table
+*/
+?>
+
+
 
 <style>
     .currency-value-list{
@@ -29,7 +34,10 @@
     }
     .currency-value-list p{
         display: inline-block;
-        padding: 0px 30px;
+        padding: 0 30px;
         border-right: 1px #a1a1a1 solid;
+    }
+    .currency-input-list input{
+        margin-right: 20px;
     }
 </style>
