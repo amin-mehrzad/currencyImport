@@ -21,6 +21,9 @@ class Import extends Template
 	}
     public function getRate($currency){
 		return $this->helper->getCurrencyValue($currency);
+	}
+	public function setRate($currency,$value){
+		 $this->helper->setCurrencyValue($currency,$value);
     }
 
 }

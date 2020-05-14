@@ -1,17 +1,22 @@
 <?php
-/* TODO:
-    - Add setValue function for currencies
-*/
+
 namespace SamuraiCode\CurrencyBasePrice\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Helper\Context;
+use \Magento\Framework\App\Config\Storage\WriterInterface;
+use \Magento\Framework\App\Config\ValueFactory;
+use \Magento\Framework\App\Cache\TypeListInterface;
+
 
 class Data extends AbstractHelper
  {
     protected $_scopeConfig;
     protected $_reportCollectionFactory;
+    protected $configWriter;
+    protected $configValueFactory;
+    protected $cacheTypeList;
 
     const XML_PATH_CURRENCY_BASE_PRICE_TYPE_ONE     = 'currencyBasePrice_tab/currencyBasePrice_currency_setting/currencyBasePrice_currency_type_one';
     const XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO	    = 'currencyBasePrice_tab/currencyBasePrice_currency_setting/currencyBasePrice_currency_type_two';
@@ -21,10 +26,17 @@ class Data extends AbstractHelper
 
     public function __construct (
         Context $context,
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        WriterInterface $configWriter,
+        ValueFactory $configValueFactory,
+        TypeListInterface $cacheTypeList
+
     ) {
         parent::__construct( $context );
         $this->_scopeConfig = $scopeConfig;
+        $this->_configWriter = $configWriter; 
+        $this->_configValueFactory = $configValueFactory; 
+        $this->cacheTypeList  = $cacheTypeList; 
     }
 
     public function getCurrencyValue( $currency ) {
@@ -54,19 +66,21 @@ class Data extends AbstractHelper
     public function setCurrencyValue( $currency, $value ) {
         switch  ( $currency ) {
             case 'USD':
-                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_ONE, $value );
+                // return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_ONE, $value );
+                $this->_configWriter->save(self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_ONE, $value, $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeId = 0);  
+                $this->cacheTypeList ->cleanType(\Magento\Framework\App\Cache\Type\Config::TYPE_IDENTIFIER); $this->cacheTypeList ->cleanType(\Magento\PageCache\Model\Cache\Type::TYPE_IDENTIFIER);
                 break;
             case 'EUR':
-                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO, $value );
-                break;
+               $this->_configValueFactory->create()->load( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO , 'path' )->setValue( $value )->setPath( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_TWO )->save();   
+               break;
             case 'TRY':
-                return  $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_THREE, $value );
+                $this->_configValueFactory->create()->load( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_THREE , 'path' )->setValue( $value )->setPath( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_THREE )->save(); 
                 break;
             case 'AED':
-                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FOUR, $value );
+                $this->_configValueFactory->create()->load( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FOUR , 'path' )->setValue( $value )->setPath( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FOUR )->save(); 
                 break;
             case 'custom':
-                return $this->_scopeConfig->setValue( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FIVE, $value );
+                $this->_configValueFactory->create()->load( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FIVE , 'path' )->setValue( $value )->setPath( self::XML_PATH_CURRENCY_BASE_PRICE_TYPE_FIVE )->save();       
                 break;
             default:
                 return 1;
